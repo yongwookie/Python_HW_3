@@ -1,16 +1,16 @@
+#import dependency
 import os
 import csv
 
 #set variables
 
-total_vote = []
-khan_vote = []
-li_vote = []
-correy_vote = []
-tooley_vote =[]
+total_vote = 0
+khan_vote = 0
+li_vote = 0
+correy_vote = 0
+tooley_vote = 0
 
-
-csvpath = ("03-Python_Homework_Instructions_PyPoll_Resources_election_data.csv")
+csvpath = ("Resources/election_data.csv")
 
 with open(csvpath, newline='') as csvfile:
 
@@ -20,26 +20,32 @@ with open(csvpath, newline='') as csvfile:
 
 #iterate through each row in csv
 
-for row in csvreader:
-    total_vote +=1
-    if row[2]=="Khan":
-        khan_vote +=1
-    elif row[2]=="Correy":
-        correy_vote +=1
-    elif row[2]=="Li":
-        li_vote +=1
-    elif row[2]=="O'Tooley":
-        tooley_vote +=1
-        
+    for row in csvreader:
+        total_vote +=1
+        if row[2]=="Khan":
+            khan_vote +=1
+        elif row[2]=="Correy":
+            correy_vote +=1
+        elif row[2]=="Li":
+            li_vote +=1
+        elif row[2]=="O'Tooley":
+            tooley_vote +=1
 
-print(f"Election Results")
-print(f"----------------------------")
-print(f"Total Votes: {total_votes}")
-print(f"----------------------------")
-print(f"Khan: {khan_percent:.3f}% ({khan_votes})")
-print(f"Correy: {correy_percent:.3f}% ({correy_votes})")
-print(f"Li: {li_percent:.3f}% ({li_votes})")
-print(f"O'Tooley: {otooley_percent:.3f}% ({otooley_votes})")
-print(f"----------------------------")
-print(f"Winner: {key}")
-print(f"----------------------------")
+percent_khan = (khan_vote) / (total_vote)
+
+num_khan = int(percent_khan)
+
+num = "{:.1%}".format[num_kahn]
+
+print(num)
+
+
+print("Election Results")
+print("----------------------------")
+print("Total Vote =", total_vote)
+print("Khan", khan_vote)
+print("Li", li_vote)
+print("Correy", correy_vote)
+print("Tooley", tooley_vote)
+
+print("----------------------------")
